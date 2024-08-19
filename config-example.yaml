@@ -109,6 +109,9 @@ derp:
     ipv4: 1.2.3.4
     ipv6: 2001:db8::1
 
+    # verify_clients_url is used to provide to verify the ts client for derp, to avoid not authed client use your derp server
+    verify_clients_url: "https://myheadscale.example.com/verify"
+
   # List of externally available DERP maps encoded in JSON
   urls:
     - https://controlplane.tailscale.com/derpmap/default

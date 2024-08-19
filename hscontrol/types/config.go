@@ -157,6 +157,7 @@ type DERPConfig struct {
 	UpdateFrequency                    time.Duration
 	IPv4                               string
 	IPv6                               string
+	VerifyClientsURL                   string
 }
 
 type LogTailConfig struct {
@@ -343,6 +344,7 @@ func GetDERPConfig() DERPConfig {
 	serverRegionID := viper.GetInt("derp.server.region_id")
 	serverRegionCode := viper.GetString("derp.server.region_code")
 	serverRegionName := viper.GetString("derp.server.region_name")
+	verifyClientsURL := viper.GetString("derp.server.verify_clients_url")
 	stunAddr := viper.GetString("derp.server.stun_listen_addr")
 	privateKeyPath := util.AbsolutePathFromConfigPath(
 		viper.GetString("derp.server.private_key_path"),
@@ -396,6 +398,7 @@ func GetDERPConfig() DERPConfig {
 		IPv4:                               ipv4,
 		IPv6:                               ipv6,
 		AutomaticallyAddEmbeddedDerpRegion: automaticallyAddEmbeddedDerpRegion,
+		VerifyClientsURL:                   verifyClientsURL,
 	}
 }
 
